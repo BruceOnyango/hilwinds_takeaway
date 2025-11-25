@@ -20,7 +20,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Run the pipeline
+## 4. Run the pipeline
 ```bash
 python main.py
 ```
