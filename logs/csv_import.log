@@ -1,0 +1,138 @@
+2025-11-25 10:21:06,119 - INFO - Dropping table if it exists.
+2025-11-25 10:21:06,132 - INFO - Creating new table.
+2025-11-25 10:21:06,154 - ERROR - Failed to import csv with error cannot access local variable 'row_count' where it is not associated with a value
+2025-11-25 10:21:06,155 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:21:06,155 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:21:06,155 - INFO - Date normalization completed successfully.
+2025-11-25 10:25:22,977 - INFO - Dropping table if it exists.
+2025-11-25 10:25:22,991 - INFO - Creating new table.
+2025-11-25 10:25:23,005 - ERROR - Failed to import csv with error cannot access local variable 'row_count' where it is not associated with a value
+2025-11-25 10:25:23,007 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:25:23,007 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:25:23,007 - INFO - Date normalization completed successfully.
+2025-11-25 10:25:23,085 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:30:03,420 - INFO - Dropping table if it exists.
+2025-11-25 10:30:03,432 - INFO - Creating new table.
+2025-11-25 10:30:03,444 - ERROR - Failed to import csv with error cannot access local variable 'row_count' where it is not associated with a value
+2025-11-25 10:30:03,444 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:30:03,444 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:30:03,444 - INFO - Date normalization completed successfully.
+2025-11-25 10:30:03,586 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:32:08,328 - INFO - Dropping table if it exists.
+2025-11-25 10:32:08,338 - INFO - Creating new table.
+2025-11-25 10:32:08,363 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 10:32:08,363 - INFO - CSV import completed successfully.
+2025-11-25 10:32:08,365 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:32:08,365 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:32:08,365 - INFO - Date normalization completed successfully.
+2025-11-25 10:32:08,513 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:32:32,624 - INFO - Dropping table if it exists.
+2025-11-25 10:32:32,638 - INFO - Creating new table.
+2025-11-25 10:32:32,658 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 10:32:32,658 - INFO - CSV import completed successfully.
+2025-11-25 10:32:32,659 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:32:32,659 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:32:32,659 - INFO - Date normalization completed successfully.
+2025-11-25 10:32:32,816 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:34:46,091 - INFO - Dropping table if it exists.
+2025-11-25 10:34:46,103 - INFO - Creating new table.
+2025-11-25 10:34:46,123 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 10:34:46,123 - INFO - CSV import completed successfully.
+2025-11-25 10:34:46,124 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:34:46,124 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:34:46,124 - INFO - Date normalization completed successfully.
+2025-11-25 10:34:46,255 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:47:19,953 - INFO - Dropping table if it exists.
+2025-11-25 10:47:19,963 - INFO - Creating new table.
+2025-11-25 10:47:19,987 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 10:47:19,987 - INFO - CSV import completed successfully.
+2025-11-25 10:47:19,988 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:47:19,988 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:47:19,988 - INFO - Date normalization completed successfully.
+2025-11-25 10:48:47,762 - INFO - Dropping table if it exists.
+2025-11-25 10:48:47,775 - INFO - Creating new table.
+2025-11-25 10:48:47,799 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 10:48:47,799 - INFO - CSV import completed successfully.
+2025-11-25 10:48:47,800 - INFO - Dropping table if it exists.
+2025-11-25 10:48:47,800 - INFO - Creating new table.
+2025-11-25 10:48:47,827 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 10:48:47,828 - INFO - CSV import completed successfully.
+2025-11-25 10:48:47,828 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 10:48:47,828 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 10:48:47,829 - INFO - Date normalization completed successfully.
+2025-11-25 10:48:48,027 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:16:17,525 - INFO - Dropping table if it exists.
+2025-11-25 11:16:17,543 - INFO - Creating new table.
+2025-11-25 11:16:17,568 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 11:16:17,568 - INFO - CSV import completed successfully.
+2025-11-25 11:16:17,569 - INFO - Dropping table if it exists.
+2025-11-25 11:16:17,583 - INFO - Creating new table.
+2025-11-25 11:16:17,616 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 11:16:17,616 - INFO - CSV import completed successfully.
+2025-11-25 11:16:17,617 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 11:16:17,617 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:16:17,617 - INFO - Date normalization completed successfully.
+2025-11-25 11:18:30,232 - INFO - Dropping table if it exists.
+2025-11-25 11:18:30,243 - INFO - Creating new table.
+2025-11-25 11:18:30,270 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 11:18:30,270 - INFO - CSV import completed successfully.
+2025-11-25 11:18:30,271 - INFO - Dropping table if it exists.
+2025-11-25 11:18:30,284 - INFO - Creating new table.
+2025-11-25 11:18:30,314 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 11:18:30,314 - INFO - CSV import completed successfully.
+2025-11-25 11:18:30,315 - INFO - Dropping table if it exists.
+2025-11-25 11:18:30,315 - INFO - Creating new table.
+2025-11-25 11:18:30,346 - INFO - Import finished. Total rows inserted: 50
+2025-11-25 11:18:30,346 - INFO - CSV import completed successfully.
+2025-11-25 11:18:30,347 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 11:18:30,347 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:18:30,347 - INFO - Date normalization completed successfully.
+2025-11-25 11:18:30,582 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-25 11:21:34,324 - INFO - Dropping table if it exists.
+2025-11-25 11:21:34,337 - INFO - Creating new table.
+2025-11-25 11:21:34,359 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 11:21:34,359 - INFO - CSV import completed successfully.
+2025-11-25 11:21:34,360 - INFO - Dropping table if it exists.
+2025-11-25 11:21:34,373 - INFO - Creating new table.
+2025-11-25 11:21:34,397 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 11:21:34,397 - INFO - CSV import completed successfully.
+2025-11-25 11:21:34,398 - INFO - Dropping table if it exists.
+2025-11-25 11:21:34,412 - INFO - Creating new table.
+2025-11-25 11:21:34,439 - INFO - Import finished. Total rows inserted: 50
+2025-11-25 11:21:34,439 - INFO - CSV import completed successfully.
+2025-11-25 11:21:34,439 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 11:21:34,439 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:21:34,440 - INFO - Date normalization completed successfully.
+2025-11-25 11:21:34,684 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-25 11:22:12,087 - INFO - Dropping table if it exists.
+2025-11-25 11:22:12,103 - INFO - Creating new table.
+2025-11-25 11:22:12,123 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 11:22:12,124 - INFO - CSV import completed successfully.
+2025-11-25 11:22:12,125 - INFO - Dropping table if it exists.
+2025-11-25 11:22:12,141 - INFO - Creating new table.
+2025-11-25 11:22:12,175 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 11:22:12,175 - INFO - CSV import completed successfully.
+2025-11-25 11:22:12,176 - INFO - Dropping table if it exists.
+2025-11-25 11:22:12,187 - INFO - Creating new table.
+2025-11-25 11:22:12,215 - INFO - Import finished. Total rows inserted: 50
+2025-11-25 11:22:12,215 - INFO - CSV import completed successfully.
+2025-11-25 11:22:12,215 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 11:22:12,216 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:22:12,216 - INFO - Date normalization completed successfully.
+2025-11-25 11:22:12,527 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-25 11:22:39,955 - INFO - Dropping table if it exists.
+2025-11-25 11:22:39,967 - INFO - Creating new table.
+2025-11-25 11:22:39,993 - INFO - Import finished. Total rows inserted: 15
+2025-11-25 11:22:39,993 - INFO - CSV import completed successfully.
+2025-11-25 11:22:39,994 - INFO - Dropping table if it exists.
+2025-11-25 11:22:40,004 - INFO - Creating new table.
+2025-11-25 11:22:40,031 - INFO - Import finished. Total rows inserted: 200
+2025-11-25 11:22:40,031 - INFO - CSV import completed successfully.
+2025-11-25 11:22:40,032 - INFO - Dropping table if it exists.
+2025-11-25 11:22:40,044 - INFO - Creating new table.
+2025-11-25 11:22:40,072 - INFO - Import finished. Total rows inserted: 50
+2025-11-25 11:22:40,072 - INFO - CSV import completed successfully.
+2025-11-25 11:22:40,072 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-25 11:22:40,073 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-25 11:22:40,073 - INFO - Date normalization completed successfully.
+2025-11-25 11:22:40,366 - INFO - All SQL outputs successfully generated in outputs/
