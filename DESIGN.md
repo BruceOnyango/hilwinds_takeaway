@@ -1,5 +1,8 @@
 ## 3. dbt System Design  
-*(Based on research — I have not used dbt professionally, so this design reflects best practices from dbt documentation and community examples.)*  
+
+## Scope - what I understood from research
+
+*(I have not used dbt professionally; this design reflects best practices gathered from research across dbt documentation, community sources, and ChatGPT-aided synthesis.)*  
 
 ### 3.1 Model Layers (Staging → Intermediate → Fact)
 
@@ -16,108 +19,84 @@
   - Apply row-grain checks to ensure stable keys.
   - Prepare surrogate keys for fact tables.
 
-- **Fact Models (`fct_*`)**
+- **Fact Models (`fct_*`)** 
   - Create analytics-ready tables: `fct_employees`, `fct_plans`, `fct_claims`.
   - Maintain stable grain (e.g., 1 row per employee, 1 row per plan, 1 row per claim).
   - Use `incremental` materialization to process only new or updated rows.
   - Partition large facts by date (`service_date`, `start_date`) for performance + cost efficiency.
   - Add derived metrics (e.g., employee tenure, claim age).
 
----
 
-### 3.2 Incremental Merge Logic (did not really understand this part)
+### 3.2
 
+- Incremental Merge Logic: Only process new or changed rows instead of rebuilding the whole table.(also seen in the water mark implementation in this repo)(use of unique keys to check then update if exists/ insert if otherwise)
+- Schema & Column Tests: Automatic checks that your tables and columns look correct. ( not_null , no duplicates, and checks for values that should be unique such as person_id)
+- Freshness Checks - Alerts when data stops updating.This could be through timestamps and background cron jobs
+- Anomaly Checks - Spot weird patterns that tests may not catch. (e.g Claims suddenly jump from 100/day → 20,000/day)
+- Metadata Columns - Extra columns used for auditing and debugging (e.g batch_id, is_deleted, updated_at etc)
+- Safe Model Deprecation Strategy - Mark the model as “deprecated” -> Keep it in place but stop updating it -> Point dashboards to new models -> Point dashboards to new models -> Finally delete it
 
-## 4. Deep Debugging & Incident Response  
-*(Scenario: a new feed adds 20M rows/day; costs triple; dbt models runtime jumps 4m → 45m; outputs are incorrect despite passing dbt tests.)*
+## 4.1 What probably went wrong
+- The new feed added too many rows in the same partition, making queries slow.
 
-### 4.1 Immediate symptoms
-- Sudden surge in input volume (20M rows/day).
-- Query runtime and compute cost spike.
-- Final outputs show incorrect aggregates or duplicates, but schema-level dbt tests pass.
+- Or it introduced duplicates → joins suddenly explode.
 
----
+- Or join keys changed → tables multiply unexpectedly.
 
-### 4.2 Likely root causes
-- **Partitioning / clustering misalignment** — queries scan full tables instead of pruning partitions.  
-- **Key explosion (join cardinality)** — bad join keys or many-to-many joins create massively inflated intermediate results.  
-- **Duplicate / backfilled data** — source feed contains duplicates or repeated partitions; merge logic not deduping.  
-- **Incremental merge predicate failure** — `is_incremental()` filter or `unique_key` incorrect, causing reprocessing or missed updates.  
-- **Schema drift or unexpected nulls** — business logic assumes fields that are now malformed/empty.  
-- **Tests are structural, not behavioral** — dbt tests catch schema issues but not business-rule regressions (e.g., double-counting).
+- Or logic changed → the model still “passes tests” but produces wrong numbers.
 
----
+## 4.2 How I would isolate the regression
+I would compare the old inputs vs the new inputs to see what changed.
 
-### 4.3 How to isolate the regression (stepwise)
-1. **Snapshot counts**: capture row counts and key cardinalities at each layer (raw → stg → int → fct) and compare to last good run.  
-2. **Identify the expansion point**: run each intermediate model independently (smallest → largest) and observe where row-counts or sizes explode.  
-3. **Profile queries**: use warehouse query profile / EXPLAIN to find scans, broadcast joins, or memory-heavy steps.  
-4. **Check incremental predicates**: verify `last_updated`/HWM logic and unique keys used in MERGE are correct and selective.  
-5. **Sample data inspection**: pull a small sample of rows around the problematic keys to inspect duplicates, nulls, and unexpected values.  
-6. **Compare full-refresh vs incremental**: run a `--full-refresh` on the suspect model to see whether incremental logic or data shape is the cause.
+Specifically: 
+- Row counts: Did the number of rows suddenly spike?
 
----
+- Duplicates: Did the new feed introduce repeated IDs?
 
-### 4.4 Detecting logic issues beyond dbt tests
-- **Metric-level assertions**: compare historical aggregates (sum, count, median) and assert acceptable deltas.  
-- **Grain assertions**: verify uniqueness of business-grain keys (using `dbt_utils.unique_combination_of_columns`).  
-- **Row-level sampling & diff**: diff a small sample of pre/post-transformation rows to surface incorrect joins/duplication.  
-- **Temporal sanity checks**: ensure `start_date ≤ end_date`, `service_date` within expected windows.  
-- **Enrichment consistency**: check joins to enrichment tables do not multiply rows (one-to-many vs one-to-one mistakes).
+- Join keys: Did two tables now match on many more rows than expected?
 
----
+- Partition distribution: Did all 20M rows land in the same date?
 
-### 4.5 Guardrails to prevent recurrence
-- **Require partitioning & clustering standards** for large fact tables; enforce via PR review / CI checks.  
-- **Contract tests for upstream feeds**: schema + cardinality expectations before acceptance.  
-- **Pre-merge deduplication** macros to detect and drop duplicates before MERGE.  
-- **Metric drift monitoring** (daily deltas, z-score alarms) with automated alerts.  
-- **Enrichment & merge failure logging**: capture failed keys and retry queues.  
-- **Cost/run-time alerts**: break jobs or notify when runtime or cost crosses thresholds.
+This helps pinpoint where the slowdown started.
 
----
+## 4.3 How to detect issues that dbt tests miss
 
-### 4.6 First 30-minute triage plan
-1. **Stop or throttle downstream schedules** to prevent further bad outputs.  
-2. **Collect evidence**: run `dbt run` with `--models` on staging and the first intermediate models; save row counts and `run_results.json`.  
-3. **Inspect warehouse query history** for the longest-running queries and check for full-table scans or broadcast joins.  
-4. **Locate the expansion point** by comparing counts (raw → stg → int) to find where rows multiply.  
-5. **Run a targeted `--full-refresh`** for the suspect model in an isolated environment to confirm whether incremental logic is the root cause.  
-6. **If business-critical outputs are corrupted**, revert to last known-good snapshot and notify stakeholders with mitigation steps and ETA.  
-7. **Document findings** and create short-term fixes (e.g., add pre-merge dedupe, tighten incremental predicate) and longer-term actions (partitioning, contract tests).
+add tests like:
 
+- Input vs output row count checks (did we lose or multiply rows?)
 
-## sources for 4.
-1. dbt Labs — Performance Best Practices
+- Duplicate detection (did a new feed break uniqueness?)
 
-https://docs.getdbt.com/docs/best-practices/performance
+- Referential integrity (are plan IDs valid?)
 
--Covers:
+- Anomaly checks (did today’s row count jump 10×?)
 
-Partitioning & clustering
-Incremental model pitfalls
-Join performance
-Cost control 
+## 4.4 How to prevent this from happening again
 
-2. dbt Labs — Debugging dbt Models
+Guardrails:
 
-https://docs.getdbt.com/docs/guides/debugging
+- Partition pruning: ensure new data lands in the correct daily/monthly partition.
 
-Covers:
+- Schema contracts: new feed must follow the agreed format.
 
-Finding failing models
-How to isolate regression
---full-refresh vs incremental
-Large-model debugging techniques
+- Row-count monitors: alert if volume changes too much.
 
+- Cost alerts: notify if warehouse cost spikes.
 
-3. dbt Incremental Models Guide
+- Uniqueness checks: catch duplicates early.
 
-https://docs.getdbt.com/docs/build/incremental-models
+## 4.5 My First 30 Minutes
 
-Covers:
+- Pull a tiny sample of the new feed to inspect it manually.
 
-Incremental merge logic
-Unique key problems
-Row explosion issues
-Bad incremental filters (is_incremental())
+- Check for duplicates or missing IDs.
+
+- Check the partition value (e.g., claim_date) to see if all data is stored under a single day.
+
+- Run the slowest model on only 1% of data to see whether it still blows up.
+
+## Edge Cases to Handle With More Time
+1. For larger datasets process in batches (chunking)
+2. duplicate column names check.
+3. Retry loading the datasets with exponetional backoffs
+4. checks for where the end date is earlier than the start date

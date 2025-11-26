@@ -1,3 +1,4 @@
+# manual inspection of the clean_data file
 import pandas as pd
 
 # Load the Parquet file
