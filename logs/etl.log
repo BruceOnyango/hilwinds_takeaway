@@ -240,3 +240,54 @@
 2025-11-25 16:33:34,345 - INFO - Attempt 1 for enriching EIN 22-2222222
 2025-11-25 16:33:34,345 - INFO - Enrichment successful for EIN 22-2222222
 2025-11-25 16:33:34,702 - INFO - Rows processed: 62, Validation errors: 0
+2025-11-26 13:14:46,734 - INFO - Dropping table if it exists.
+2025-11-26 13:14:46,742 - INFO - Creating new table.
+2025-11-26 13:14:46,770 - INFO - Import finished. Total rows inserted: 15
+2025-11-26 13:14:46,771 - INFO - CSV import completed successfully.
+2025-11-26 13:14:46,772 - INFO - Dropping table if it exists.
+2025-11-26 13:14:46,772 - INFO - Creating new table.
+2025-11-26 13:14:46,801 - INFO - Import finished. Total rows inserted: 200
+2025-11-26 13:14:46,801 - INFO - CSV import completed successfully.
+2025-11-26 13:14:46,830 - INFO - Dropping table if it exists.
+2025-11-26 13:14:46,830 - INFO - Creating new table.
+2025-11-26 13:14:46,875 - INFO - Import finished. Total rows inserted: 50
+2025-11-26 13:14:46,875 - INFO - CSV import completed successfully.
+2025-11-26 13:14:46,875 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-26 13:14:46,876 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-26 13:14:46,876 - INFO - Date normalization completed successfully.
+2025-11-26 13:14:47,087 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-26 13:14:47,233 - INFO - No new rows to process. Exiting ETL early.
+2025-11-26 13:17:12,807 - INFO - Dropping table if it exists.
+2025-11-26 13:17:12,809 - INFO - Creating new table.
+2025-11-26 13:17:12,846 - INFO - Import finished. Total rows inserted: 15
+2025-11-26 13:17:12,846 - INFO - CSV import completed successfully.
+2025-11-26 13:17:12,847 - INFO - Dropping table if it exists.
+2025-11-26 13:17:12,847 - INFO - Creating new table.
+2025-11-26 13:17:12,876 - INFO - Import finished. Total rows inserted: 200
+2025-11-26 13:17:12,877 - INFO - CSV import completed successfully.
+2025-11-26 13:17:12,878 - INFO - Dropping table if it exists.
+2025-11-26 13:17:12,878 - INFO - Creating new table.
+2025-11-26 13:17:12,905 - INFO - Import finished. Total rows inserted: 50
+2025-11-26 13:17:12,905 - INFO - CSV import completed successfully.
+2025-11-26 13:17:12,906 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-26 13:17:12,906 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-26 13:17:12,906 - INFO - Date normalization completed successfully.
+2025-11-26 13:17:13,072 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-26 13:17:13,118 - INFO - No new rows to process. Exiting ETL early.
+2025-11-26 13:18:34,802 - INFO - Dropping table if it exists.
+2025-11-26 13:18:34,813 - INFO - Creating new table.
+2025-11-26 13:18:34,836 - INFO - Import finished. Total rows inserted: 15
+2025-11-26 13:18:34,837 - INFO - CSV import completed successfully.
+2025-11-26 13:18:34,837 - INFO - Dropping table if it exists.
+2025-11-26 13:18:34,847 - INFO - Creating new table.
+2025-11-26 13:18:34,877 - INFO - Import finished. Total rows inserted: 200
+2025-11-26 13:18:34,877 - INFO - CSV import completed successfully.
+2025-11-26 13:18:34,878 - INFO - Dropping table if it exists.
+2025-11-26 13:18:34,890 - INFO - Creating new table.
+2025-11-26 13:18:34,916 - INFO - Import finished. Total rows inserted: 50
+2025-11-26 13:18:34,916 - INFO - CSV import completed successfully.
+2025-11-26 13:18:34,917 - INFO - Normalized date column 'start_date' in table 'plans'.
+2025-11-26 13:18:34,917 - INFO - Normalized date column 'end_date' in table 'plans'.
+2025-11-26 13:18:34,917 - INFO - Date normalization completed successfully.
+2025-11-26 13:18:35,185 - INFO - All SQL outputs successfully generated in outputs/
+2025-11-26 13:18:35,234 - INFO - No new rows to process. Exiting ETL early.
